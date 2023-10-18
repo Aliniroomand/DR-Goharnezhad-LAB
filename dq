@@ -1,0 +1,17 @@
+[33mcommit defeeb7917da2984523f2f3e883df8b763e5f949[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Aliniroomand <aliniroomand32@gmail.com>
+Date:   Wed Oct 18 18:06:37 2023 +0330
+
+    complete first page without responsive
+
+[33mcommit ebba69fb9af4d928f3157117d7beb6f7f1311c5f[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Aliniroomand <aliniroomand32@gmail.com>
+Date:   Wed Oct 18 10:05:52 2023 +0330
+
+    first commit and initialing site
+
+[33mcommit 64f0fa19debb93ff9c926095d18f41a07e22b4ab[m
+Author: Aliniroomand <aliniroomand32@gmail.com>
+Date:   Wed Oct 18 08:43:03 2023 +0330
+
+    Initialize project using Create React App

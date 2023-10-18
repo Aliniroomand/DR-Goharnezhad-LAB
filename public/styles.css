@@ -1,0 +1,9 @@
+
+body{
+    --surmeiRoshan: #2f6297;
+    --surmeiTire:#022952;
+    --ghahveiRoshan:#e0b271;
+    --zardRoshan:#d8bd43;
+    background: url(./wall.jpg);
+    background-repeat: repeat;
+}
