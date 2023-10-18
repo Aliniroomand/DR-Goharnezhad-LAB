@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 width: 100%;
 height: 100%;
 }
 
-.optionts_part{
+.options_part{
     display:  flex;
     align-items: center;
     justify-content: center;
@@ -14,12 +15,12 @@ height: 100%;
     margin-right: 500px;
 }
 
-.optionts_part p{
+.options_part p{
     color: var(--surmeiTire);
-    text-shadow: 0px 0px 2px black;
+    text-shadow: 0px 0px 2px wheat;
     
 }
-.optionts_part img{
+.options_part img{
     width: 100px;
 }
 .admin_part:hover,
@@ -32,47 +33,106 @@ height: 100%;
 }
 .admin_part ,
 .enterance_site{
-    margin: 40px;
+    margin: 10px;
+    margin-top: -30px;
     text-align: center;
     padding: 20px;
-    box-shadow: 5px 5px 10px,inset -5px -5px 10px,inset 5px 5px 10px white;
+    box-shadow: 5px 5px 10px black,inset -5px -5px 10px black,inset 5px 5px 10px white ;
     border-radius: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1;
+    text-decoration: none;
 }
 .answers {
+    position: fixed;
     z-index: 1;
-    text-align: center;
-    font-size: 1.3em;
-    margin-top: 85px;
-    margin-right: 200px;
-    color:var(--surmeiTire);
-    width: 188px;
-    border-radius: 4px;
-    background-color: var(--ghahveiRoshan);
-    box-shadow: inset 0 0 10px #000 ;
+    margin-right: 245px;
+    margin-bottom: 10px;
+    bottom: 9.5vh;
+    width: 100%;
+    height: 130px;
 }
 
 .answers:hover{
     cursor: pointer;
-    background-color: var(--surmeiTire);
-    color:var(--ghahveiRoshan);
-    transition: 0.3s;
-    animation: flash .5s step-end;
 }
 
-.BG_image{
+.desktop_BG ,
+.mobile_BG{
+    display: block;
     position: fixed;
     z-index: 0;
-    height:100vh;
-align-self: center;
-bottom: 10px;
+    top: 0;
+    right: 0;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+}
+.mobile_BG{
+    display: none;
 }
 
+/* media queries */
+@media {
 
+    .options_part img{
+        width: 80px;
+    }
+}
+@media (min-width: 340px) and (max-width: 780px){
+    .desktop_BG{
+        display:none;
+    }
+    .mobile_BG{
+        display: block;
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        right: 0;
+        align-self: center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: bottom;
+    }
+    .container{
+        display: flex;
+    }
+    .options_part{
+        margin: 0px;
+        flex-direction: column;
+/* margin-left: -250px; */
+    }
+    .admin_part img,
+    .enterance_site img{
+        width: 50px;
+        height: 50px;
+        padding-inline: 40px;
+        margin-left: -40px;
+        border-radius: 50%;
+    }
+    .admin_part p,
+    .enterance_site p{
+        width: 50%;
+        text-align: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+    .admin_part ,
+    .enterance_site{
+    margin: 10px;
+    width: 100%;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
+}
+}
 /* animations */
 @-webkit-keyframes swing {
     20% {
@@ -126,7 +186,7 @@ bottom: 10px;
         }
         
         25%, 75% {
-        opacity: 0;
+        opacity: 0.25;
         }
         }
         
@@ -136,6 +196,6 @@ bottom: 10px;
         }
         
         25%, 75% {
-        opacity: 0;
+        opacity: 0.2;
         }
         } 
