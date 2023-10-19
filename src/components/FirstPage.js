@@ -13,7 +13,7 @@ const FirstPage = () => {
         <div className={styles.container}>
             <div className={styles.options_part}>
                 
-                <Link to='/adminPage' className={styles.admin_part}>
+                <Link to='/adminloginpage' className={styles.admin_part}>
                 <img src={adminSVG} alt='adminsvg'/>
                 <p>ورود مدیر سایت</p>
                 </Link>
