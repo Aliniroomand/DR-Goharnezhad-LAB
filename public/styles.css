@@ -1,11 +1,13 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Lateef:wght@500&display=swap');
+
 body{
     --surmeiRoshan: #2f6297;
     --surmeiTire:#022952;
     --ghahveiRoshan:#e0b271;
     --zardRoshan:#d8bd43;
     background: url(./wall.jpg);
-
+ font-family: "Lalezar","Lateef";
     background-size: cover;
 }
 @media(width<780px){

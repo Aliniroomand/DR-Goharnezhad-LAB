@@ -7,6 +7,8 @@ import{ Validation } from '../helper/Validation.js'
 //styles
 import styles from './AdminLoginPage.module.css'
 
+// images
+import wavesBG from '../assets/images/layered-waves-haikei (3) (1).png'
 
 const AdminLoginPage = () => {
     const [data,setData]=useState({
@@ -72,11 +74,12 @@ useEffect( ()=>{
         />
             {errors.password && touched.password && <span>{errors.password}</span>}
         <div className={styles.buttons}>
-            <button type="submit" className={Object.keys(errors).length ? styles.redButton: styles.greenButton}>submit</button>
-        </div >
-        <div><Link to="./firstpage">بازگشت</Link></div>
+            <button type="submit" className={Object.keys(errors).length > 0 ? styles.redButton: styles.greenButton}>ورود</button>
+            <Link to="./firstpage">بازگشت</Link>
+        </div>
     </form>
             <ToastContainer />
+            <img src={wavesBG} className={styles.wavesBG1} alt='layerd waves'/>
     </div>
 );
 };
