@@ -5,7 +5,13 @@ body{
     --surmeiRoshan: #2f6297;
     --surmeiTire:#022952;
     --ghahveiRoshan:#e0b271;
+    --ghahveiTire:#995900;
     --zardRoshan:#d8bd43;
+    --boxShadow: 4px 4px 8px #000000,
+    inset 4px 4px 8px #ffffff,
+    4px 4px 10px #000000,
+    -4px -4px 10px #ffffff,
+    inset -4px -4px 8px #000000;
     background: url(./wall.jpg);
  font-family: "Lalezar","Lateef";
     background-size: cover;

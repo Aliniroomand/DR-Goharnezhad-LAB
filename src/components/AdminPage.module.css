@@ -1,0 +1,73 @@
+.container{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    height: 90vh;
+}
+.imageContainer,
+.uploadContainer,
+.resultsContainer
+{
+    position: relative;
+    top: -80px;
+    height:95vh ;
+    width: 32vw;
+    border-radius: 200px;
+    overflow: visible;
+    z-index: 1;
+    margin-top: 200px;
+    box-shadow:var(--boxShadow);
+}
+.imageContainer{
+    background-image: url(../assets/images/backgroundSVG.png);
+    background-size: cover;
+}
+.imageContainer img{
+    height:100% ;
+    padding: 0 30px 0px;
+    position: absolute;
+    bottom:0;
+    border-radius: 0 0 180px 180px;
+}
+    
+.imageContainer h1{
+margin-top: 0px;
+position: absolute;
+top: 170px;
+right: 10px;
+color: var(--zardRoshan);
+text-shadow: 0 0 1px black;
+z-index: 1;
+}
+
+
+
+.uploadContainer{
+display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: center;
+background-image: url(../assets/images/backgroundSVG2.png) ;
+background-size: contain;
+}
+
+.uploadContainer h1{
+    margin-top: 140px;
+    color: var(--ghahveiTire);
+    text-shadow: 0 0 1px black;
+}
+.uploadContainer input{
+    width: 70%;
+    margin: 5px auto;
+}
+.uploadContainer input[type="file"]{
+width: 80%;
+self: center;
+font-size: 1.1rem;
+}
+
+.resultsContainer{
+    background:url(../assets/images/backgroundSVG-.png);
+    background-size: contain;
+}

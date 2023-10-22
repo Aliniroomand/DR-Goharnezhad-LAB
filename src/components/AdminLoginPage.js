@@ -1,8 +1,7 @@
 import React , { useState ,useEffect } from 'react';
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import {notify} from '../assets/toast';
-import { Link } from 'react-router-dom';
+import { ToastContainer} from 'react-toastify';
+import { Link , useNavigate } from 'react-router-dom';
 import{ Validation } from '../helper/Validation.js'
 //styles
 import styles from './AdminLoginPage.module.css'
@@ -32,10 +31,15 @@ useEffect( ()=>{
         setTouched({...touched, [event.target.name]:true})
     }
     
+    const navigate= useNavigate();
+        
+    
     const submitHandler = event=>{
         event.preventDefault();
-        if (!Object.keys(errors).length) 
-            {notify("هردو درست بود،تا 3 بشماری وارد صفحه ادمین میشی","success")}
+        
+        if (!Object.keys(errors).length) {
+        navigate('/adminPage')}
+
         else{ notify("اطلاعات رو متاسفانه درست وارد نکردی ","error")
             setTouched({
             username:true,
