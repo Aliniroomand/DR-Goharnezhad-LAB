@@ -1,5 +1,6 @@
 export const Validation = (data,type) =>{
     const errors ={}
+    // for admin Login page
     if (type === "AdminLogin")
 {
     if (!data.username.trim()){
@@ -19,6 +20,24 @@ export const Validation = (data,type) =>{
                     delete errors.password
                 }
             }
+    // for customer Login page
+    if(type === "customerLogin"){
+        if(!data.codeMelli.trim()){
+            errors.codeMelli="برای دیدن جواب ،کد ملی ضروری هست"
+        }else
+        if(!(/^\d{10}$/).test(data.codeMelli.trim())){
+            errors.codeMelli="کد ملی حتما باید ده رقمی باشه"
+        }else{
+            delete errors.codeMelli
+        }
+
+        if(!data.shomareGhabz.trim()){
+            errors.shomareGhabz="برای دیدن جواب شماره قبض ضروری هست"
+        }else{
+            delete errors.shomareGhabz
+        }
+    }
+    
 return errors;
 }
  

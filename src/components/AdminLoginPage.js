@@ -25,7 +25,7 @@ const[touched,setTouched]= useState({});
 
 useEffect( ()=>{
     setErrors(Validation(data,"AdminLogin"))
-} ,[data,touched])
+} ,[data])
 
     const focusHandler = event=>{
         setTouched({...touched, [event.target.name]:true})
@@ -38,7 +38,8 @@ useEffect( ()=>{
         event.preventDefault();
         
         if (!Object.keys(errors).length) {
-        navigate('/adminPage')}
+            notify("اطلاعات درست بود،الان وارد صفحه میشیم!","success");
+            navigate('/adminPage')}
 
         else{ notify("اطلاعات رو متاسفانه درست وارد نکردی ","error")
             setTouched({

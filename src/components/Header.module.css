@@ -1,0 +1,59 @@
+
+.siteTitle{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    height: 5vh;
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(167, 167, 167, 0.432);
+    margin-inline: auto;
+    padding: 10px 5px;
+    border-radius: 50px;
+    backdrop-filter: blur(3px);
+}
+.logo{
+width: 60px;
+}
+.title{
+    width: 180px;
+    height: 45px;
+}
+.siteTitle li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.siteTitle li a,
+.siteTitle li{
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--surmeiRoshan);
+}
+.siteTitle li a:hover,
+.siteTitle li a:active{
+    color: var(--ghahveiTire);
+    transition: 0.3s;
+    transform: scale(1.2);
+
+}
+.menuIcon,
+.dropDownMenu{
+    display: none;
+}
+
+
+@media(width<780px){
+    .siteTitle{
+    justify-content: space-between;
+    padding-inline: 20px;
+    }
+    .siteTitle li{
+        display: none;
+    }
+    .menuIcon{
+        display: block;
+    }
+}

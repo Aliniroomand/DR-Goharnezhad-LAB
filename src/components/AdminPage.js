@@ -7,10 +7,6 @@ import doctorImage from '../assets/images/doctor (2).png'
 const AdminPage = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.imageContainer}>
-                <h1>سلام و خداقوت!</h1>
-                <img src={doctorImage} alt='doctor'/>
-            </div>
             <div className={styles.uploadContainer}>
                 <h1>بارگذاری جواب آزمایش</h1>
                 <label htmlFor='codeMelli'>کد ملی فرد رو اینجا وارد کنید:</label>             
@@ -44,6 +40,10 @@ const AdminPage = () => {
                 // onFocus={focusHandler}
                 
             />
+            </div>
+            <div className={styles.imageContainer}>
+                <h1>سلام و خداقوت!</h1>
+                <img src={doctorImage} alt='doctor'/>
             </div>
             <div className={styles.resultsContainer}>
                 <h1>جستجوی قبض</h1>
