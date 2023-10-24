@@ -37,7 +37,28 @@ export const Validation = (data,type) =>{
             delete errors.shomareGhabz
         }
     }
-    
+    //for uploadForm
+    if(type==="uploadForm" || type==="searchResult"){
+        if(!data.codeMelli.trim()){
+            errors.codeMelli="وارد کردن کد ملی ضروری هست"
+        }else
+        if(!(/^\d{10}$/).test(data.codeMelli.trim())){
+            errors.codeMelli="کد ملی حتما باید ده رقمی باشه"
+        }else{
+            delete errors.codeMelli
+        }
+    if(!data.shomareGhabz.trim()){
+        errors.shomareGhabz="وارد کردن شماره قبض ضروری هست"
+    }else{
+        delete errors.shomareGhabz
+    }
+    if(data.file===""){
+        errors.file="لطفا فایل جواب رو آپلود کنید"
+    }else{
+        delete errors.file
+    }
+
+    }
 return errors;
 }
  

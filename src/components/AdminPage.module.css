@@ -47,7 +47,7 @@ z-index: 1;
 .uploadContainer{
 display: flex;
 flex-direction: column;
-justify-content: start;
+justify-content: flex-start;
 align-items: center;
 background-image: url(../assets/images/backgroundSVG.png) ;
 background-size: contain;
@@ -64,7 +64,6 @@ background-size: contain;
 }
 .uploadContainer input[type="file"]{
 width: 80%;
-self: center;
 font-size: 1.1rem;
 }
 
@@ -73,13 +72,45 @@ font-size: 1.1rem;
     background-size: contain;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.searchBox{
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    height: 50%;
+    margin-bottom: 10px;
 }
-.resultsContainer h1{
+.searchBox h1{
 color: var(--zardRoshan);
 text-shadow: 0 0 3px rgb(0, 0, 0),0 0 2px #000,0 0 4px #000,0 0 7px #000;
-margin-top: 90px;
-
-    
+margin-top: 55px;
+margin-bottom: -10px;
+}
+.searchBox label{
+    color: var(--zardRoshan);
+    text-shadow: 0 0 5px #000;
+}
+.searchBox input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.searchBox button{
+    width: 100%;
+    margin-top: 5px;
+    font-family: "Lalezar";
+    background: #ffffff71;
+    border-radius: 40px;
+}
+.searchBox button:hover{
+cursor: pointer;
+background-color: #d8bd43e8;
+transition: 0.4s;
+}
+.resultsBox{
+    height: 30%;
+    overflow-y: scroll;
+    padding-inline: 20px;
 }
