@@ -3,6 +3,8 @@ import {notify} from '../assets/toast';
 import { ToastContainer} from 'react-toastify';
 import { Link , useNavigate } from 'react-router-dom';
 import{ Validation } from '../helper/Validation.js'
+import AnimatedPages from './AnimatedPages';
+
 //styles
 import styles from './ResultsLoginPage.module.css'
 
@@ -26,27 +28,30 @@ const[errors,setErrors]=useState({})
 useEffect(()=>{
     setErrors(Validation(data,"customerLogin"))
 },[data])
-
+const navigate=useNavigate()
 
 const submitHandler=(event)=>{
     event.preventDefault();
     if(Object.keys(errors).length){ 
     notify("اطلاعات رو بادقت وارد کنید ","error")
      setTouched({
-     username:true,
-     password:true,
+     codeMelli:true,
+     shomareGhabz:true,
 })}else{
     notify("در حال جستجوی جواب","success");
+
 
 }
 }
 
     return (
+        <>
+        <AnimatedPages>
         <div className={styles.container}>
-        <h1>لطفا نام کاربری و شماره قبض رو وارد کنید</h1>
+        <h1>لطفا کدملی<br></br> و شماره قبض رو وارد کنید</h1>
     <form onSubmit={submitHandler}>
         
-        <label>نام کاربری:</label> 
+        <label>کدملی:</label> 
         <input 
             className={errors.codeMelli && touched.codeMelli ? styles.inputError : styles.correctInput}
             placeholder='کدملی رو اینجا وارد کنید '
@@ -71,13 +76,15 @@ const submitHandler=(event)=>{
         />
             {errors.shomareGhabz && touched.shomareGhabz && <span>{errors.shomareGhabz}</span>}
         <div className={styles.buttons}>
-            <button type="submit" className={Object.keys(errors).length > 0 ? styles.redButton: styles.greenButton}>ورود</button>
+            <button onClick={submitHandler}type="submit" className={Object.keys(errors).length > 0 ? styles.redButton: styles.greenButton}>ورود</button>
             <Link to="./firstpage">بازگشت</Link>
         </div>
     </form>
             <ToastContainer />
             {/* <img src={wavesBG} className={styles.wavesBG1} alt='layerd waves'/> */}
     </div>
+    </AnimatedPages>
+    </>
 );
 };
 

@@ -7,13 +7,13 @@ import doctorImage from '../assets/images/doctor (2).png'
 //components
 import Results from './Results';
 import { Timestamp,collection,addDoc } from 'firebase/firestore';
+import AnimatedPages from './AnimatedPages';
 //helper
 import { Validation } from '../helper/Validation';
 //storage
 import { ref, uploadBytesResumable,getDownloadURL } from 'firebase/storage';
 import { storage , db} from '../firebaseConfig';
 import { toast } from 'react-toastify';
-
 
 const AdminPage = () => {
 
@@ -92,6 +92,7 @@ uploadFile.on("state_changed",
 )
 
     return (
+        <AnimatedPages>
         <div className={styles.container}>
             <div className={styles.uploadContainer}>
                 <h1>بارگذاری جواب آزمایش</h1>
@@ -166,6 +167,7 @@ uploadFile.on("state_changed",
                 </div>
             </div>
         </div>
+                    </AnimatedPages>
     );
 };
 

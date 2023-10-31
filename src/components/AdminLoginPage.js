@@ -5,9 +5,13 @@ import { Link , useNavigate } from 'react-router-dom';
 import{ Validation } from '../helper/Validation.js'
 //styles
 import styles from './AdminLoginPage.module.css'
-
+//components
+import AnimatedPages from './AnimatedPages';
 // images
 import wavesBG from '../assets/images/layered-waves-haikei (3) (1).png'
+
+
+
 
 const AdminLoginPage = () => {
     const [data,setData]=useState({
@@ -50,6 +54,8 @@ useEffect( ()=>{
 
 
     return (
+        <AnimatedPages>
+
         <div className={styles.container}>
         <h1>لطفا نام کاربری و پسورد رو وارد کنید</h1>
     <form onSubmit={submitHandler}>
@@ -86,6 +92,8 @@ useEffect( ()=>{
             <ToastContainer />
             <img src={wavesBG} className={styles.wavesBG1} alt='layerd waves'/>
     </div>
+    </AnimatedPages>
+
 );
 };
 

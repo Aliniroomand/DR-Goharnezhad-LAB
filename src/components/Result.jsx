@@ -5,6 +5,7 @@ import document from '../assets/images/document.svg'
 //styles
 import styles from './Result.module.css'
 
+
 const Result = () => {
     const [wholeResults,setWholeResults]=useState([]);
 useEffect(()=>{
@@ -19,6 +20,7 @@ onSnapshot(q,(snapshot)=>{
     })
 },[])
     return (
+    
         <div>
             { wholeResults.map(({shomareGhabz,codeMelli,uploadedAt,fileUrl,title})=>
             <div className={styles.container} key={shomareGhabz}>
@@ -33,6 +35,7 @@ onSnapshot(q,(snapshot)=>{
             </div>
             )}
         </div>
+
     );
 };
 

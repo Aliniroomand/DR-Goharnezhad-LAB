@@ -1,9 +1,11 @@
 .container {
-    width: 400px;
+    overflow: hidden;
+    height:calc(80vh - 60px);
+    top: 4vh;
+    max-width: calc(100% - 20px);
     position: relative;
-    margin: 50px auto;
-    top: 80px;
-    padding: 30px 0;
+    margin: 50px 10px 0 10px;
+    padding: 30px 10px;
     box-shadow: 4px 4px 8px #000000,
                 inset 4px 4px 8px #ffffff,
                 4px 4px 10px #000000,
@@ -16,7 +18,9 @@
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-
+ background: url(../assets/images/mobile-answer-page.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
 }
 
 .container h1 {
@@ -31,6 +35,7 @@
 .container form{
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding:30px;
 }
 
@@ -165,7 +170,7 @@ inset 4px 4px 8px #ffffff,
     text-align: center;
     border-radius: 90px;
     background-color:rgba(163, 163, 163, 0.199);
-    color: wheat;
+    color: var(--surmeiTire);
     width: 100%;
     font-weight: 900;
     font-size: 1.3rem;
@@ -190,6 +195,7 @@ inset 4px 4px 8px #ffffff,
     -4px -4px 10px #ffffff;
     transition: .3s;
 }
+
 /* Animations */
 @keyframes wave{
     0%{

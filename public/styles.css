@@ -15,6 +15,7 @@ body{
     background: url(./wall.jpg);
  font-family: "Lalezar","Lateef";
     background-size: cover;
+    overflow: hidden;
 }
 @media(width<780px){
 body{
