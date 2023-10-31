@@ -5,15 +5,14 @@ import styles from './AdminPage.module.css'
 //images
 import doctorImage from '../assets/images/doctor (2).png'
 //components
-import Results from './Results';
-import { Timestamp,collection,addDoc } from 'firebase/firestore';
+import Result from './Result';
 import AnimatedPages from './AnimatedPages';
+import { supabase } from './supabaseClient';
 //helper
 import { Validation } from '../helper/Validation';
-//storage
-import { ref, uploadBytesResumable,getDownloadURL } from 'firebase/storage';
-import { storage , db} from '../firebaseConfig';
 import { toast } from 'react-toastify';
+import ResultsList from './ResultsList';
+//storage
 
 const AdminPage = () => {
 
@@ -22,74 +21,51 @@ const AdminPage = () => {
         codeMelli:"",
         shomareGhabz:""
     });
-    useEffect((event)=>{
-
-    },[serached])
-    
     const searchChangeHandler = (event)=>{
         setSearched({...serached,[event.target.name]:event.target.value })
     }
-// Upload part
-    const [formData,setForamData]=useState({
-        codeMelli:"",
-        shomareGhabz:"",
-        file:"",
-        uploadedAt:Timestamp.now().toDate(),
-    })
 
-    const uploadChangeHandler=(event)=>{
-        setForamData({...formData,[event.target.name]:event.target.value})
-
-    }
-    const uploadFileHandler=(e)=>{
-        setForamData({...formData,file:e.target.files[0]})
-    }
-    const handleSave=()=>{
-    }
 //rest
     const[errors,setErrors]=useState("")
     const [touched,setTouched]=useState(false);
+    const [formData,setFormData]=useState({
+        shomareGhabz:"",
+        codeMelli:"",
+        file:[],
+    })
+
     const focusHandler=(e)=>{
         setTouched({...touched,[e.target.name]:true})
     }
+    const uploadChangeHandler=(event)=>{
+        setFormData({...formData,[event.target.name]:event.target.value})
+
+    }
+    const uploadFileHandler=(e)=>{
+        setFormData({...formData,file:e.target.files[0]})
+    }
+    const submitUploadingHandler=async (event)=>{
+        event.preventDefault()
+        
+            try{
+                const{data,error}=await supabase
+                .from("results")
+                .insert({
+                    shomareghabz:formData.shomareGhabz,
+                    codemelli:formData.codeMelli,
+                    pdf_file:[],
+                }).single()
+                if(error) throw error;
+                window.location.reload()
+            }catch(error){
+                alert(error.message)
+            }
+        
+    }
+    console.log(Object.values(errors).length);
     useEffect(()=>{
         setErrors(Validation(formData,"uploadForm"))
     },[formData])
-//storage
-const [progress,setProgress]=useState(0);
-const storageRef=ref(storage,`/Results/${Date.now()}/${formData.shomareGhabz}`);
-const uploadFile= uploadBytesResumable(storageRef,formData.file)
-uploadFile.on("state_changed",
-(snapshot)=>{
-    const progressPercent=Math.round(snapshot.bytesTransferred/snapshot.totalBytes * 100);
-    setProgress(progressPercent);
-},
-(err)=>{
-    setForamData({
-        shomareGhabz:"",
-        codeMelli:"",
-        file:"",
-    });
-    getDownloadURL(uploadFile.snapshot.ref)
-    .then((url)=>{
-        const articleRef = collection(db,"results");
-        addDoc(articleRef,{
-            codeMelli:formData.codeMelli,
-            shomareGhabz:formData.shomareGhabz,
-            fileUrl:url,
-            uploadedAt:Timestamp.now().toDate(),
-        })
-        .then(()=>{
-            toast("آپلود با موفقیت انجام شد",{type:"success"});
-            setProgress(0)
-        })
-        .catch(err=>{
-            toast("خطا در بارگذاری",{type:"error"})
-        })
-    })
-
-}
-)
 
     return (
         <AnimatedPages>
@@ -125,13 +101,9 @@ uploadFile.on("state_changed",
                 onFocus={focusHandler}
                 />
                     {errors.file && touched.file && <span>{errors.file}</span>}
-                {/* progress bar */}
-                <div >
-                    <div className={styles.uploadinProgress} style={{width:'50%'}}>
-                        50%
-                    </div>
-                <button className={styles.uploadButton} onClick={handleSave}>ذخیره</button>
-                </div>
+                <button type="submit" onClick={submitUploadingHandler}>
+                    ذخیره
+                </button>
             </div>
             <div className={styles.imageContainer}>
                 <h1>سلام و خداقوت!</h1>
@@ -163,7 +135,7 @@ uploadFile.on("state_changed",
                     </button>
                 </div>
                 <div className={styles.resultsBox}>
-                    <Results />
+                    <ResultsList props={formData}/>
                 </div>
             </div>
         </div>

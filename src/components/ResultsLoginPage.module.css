@@ -1,42 +1,33 @@
-.container {
-    overflow: hidden;
-    height:calc(80vh - 60px);
-    top: 4vh;
-    max-width: calc(100% - 20px);
-    position: relative;
-    margin: 50px 10px 0 10px;
-    padding: 30px 10px;
-    box-shadow: 4px 4px 8px #000000,
-                inset 4px 4px 8px #ffffff,
-                4px 4px 10px #000000,
-                -4px -4px 10px #ffffff,
-                inset -4px -4px 8px #000000;
 
-    border-radius: 40px;
-    transition: all .3s ease;
+.mainContainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
- background: url(../assets/images/mobile-answer-page.jpg);
- background-repeat: no-repeat;
- background-size: cover;
-}
+    padding: 30px 10px;
+    height:calc(100vh - 20px);
+    width: calc(100vw - 40px);
+    background: url(../assets/images/mobile-answer-page.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 40px;
+    box-shadow: var(--boxShadow);
+    position: relative;
 
-.container h1 {
-    text-align: center;
-    padding: 0 auto;
-    margin: 0 auto;
-    font-size: 1.6rem;
-    color: var(--surmeiTire);
-    text-shadow: -2px -2px 2px rgb(158, 158, 158);
 }
-
-.container form{
+.inputsContainer {
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+height: 60%;
+width: 200px;
+margin-inline: auto;
+}
+.inputsContainer form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:30px;
+    padding: 0 5px;
+    width: 100%;
 }
 
 label{
@@ -51,10 +42,9 @@ input::placeholder{
     color: #6d6d6d;
     font-family: "Lalezar";
 }
-input[type="text"],
-input[type="password"] {
-width: 100%;
+.inputsContainer form input{
 padding: 10px;
+width: 100%;
 border: none ;
 box-shadow: 4px 4px 8px #000000,
 inset 4px 4px 8px #ffffff,
@@ -101,16 +91,7 @@ form button{
 }
 
 
-.wavesBG1{
-    animation:wave 20s ease-in-out infinite;
-    width:1000px;
-    position:absolute;
-    bottom: 0;
-    ;
-    border-radius: 0 0 40px 40px;
-    z-index: -1;
-    opacity: 0.75;
-}
+
 .buttons{
     align-self: center;
     display: flex;
@@ -118,7 +99,7 @@ form button{
     align-items: center;
     justify-content: center;
     padding-top: 20px;
-    width: 50%;
+    width: 100%;
 }
 .redButton{
     background-color:rgb(255, 0, 0);
@@ -195,7 +176,16 @@ inset 4px 4px 8px #ffffff,
     -4px -4px 10px #ffffff;
     transition: .3s;
 }
+.resultsContainer{
+    min-width: 250px;
+    box-shadow: var(--boxShadow);
+    height: 20%;
+    margin-inline: auto;
+    margin-top: -30px;
+    backdrop-filter: blur(2px);
+    border-radius: 30px;
 
+}
 /* Animations */
 @keyframes wave{
     0%{
@@ -210,7 +200,6 @@ inset 4px 4px 8px #ffffff,
     }
 
 }
-
 @-webkit-keyframes tada {
     0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -232,8 +221,8 @@ inset 4px 4px 8px #ffffff,
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     }
-    }
-    @keyframes tada {
+}
+@keyframes tada {
     0% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
@@ -254,9 +243,8 @@ inset 4px 4px 8px #ffffff,
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     }
-    } 
-
-    @-webkit-keyframes shake {
+}
+@-webkit-keyframes shake {
         0%, 100% {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -269,8 +257,8 @@ inset 4px 4px 8px #ffffff,
         -webkit-transform: translate3d(10px, 0, 0);
         transform: translate3d(10px, 0, 0);
         }
-        }
-        @keyframes shake {
+}
+@keyframes shake {
         0%, 100% {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
@@ -283,4 +271,4 @@ inset 4px 4px 8px #ffffff,
         -webkit-transform: translate3d(10px, 0, 0);
         transform: translate3d(10px, 0, 0);
         }
-        } 
+} 

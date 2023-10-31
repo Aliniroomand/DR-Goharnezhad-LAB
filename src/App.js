@@ -1,18 +1,24 @@
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+//styles
 import styles from './App.module.css';
+//components
 import FirstPage from "./components/FirstPage";
 import CompeleteSite from "./components/CompeleteSite";
 import ResultsLoginPage from './components/ResultsLoginPage';
 import AdminLoginPage from "./components/AdminLoginPage";
 import AdminPage from "./components/AdminPage";
 import Header from "./components/Header.js";
+//helper
 import { AnimatePresence } from "framer-motion";
+//context
+import ResultsContextProvider from "./context/ResultsContextProvider";
 
 function App() {
   const location = useLocation();
 
   return (
     <>
+    <ResultsContextProvider>
       <div className={styles.landingContainer}>
         <AnimatePresence mode="wait">
           <Routes key={location.pathname} location={location}>
@@ -26,6 +32,7 @@ function App() {
         <Header />
         </AnimatePresence>
       </div>
+      </ResultsContextProvider>
     </>
   );
 }

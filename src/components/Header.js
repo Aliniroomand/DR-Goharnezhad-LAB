@@ -19,7 +19,6 @@ const [display,setDisplay]=useState(false);
 
 const dropDownOpenClose=(e)=>{
   setDisplay(prev=>!prev);
-  console.log(e);
 
 }
     return (

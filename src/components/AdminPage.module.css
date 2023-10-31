@@ -110,7 +110,9 @@ background-color: #d8bd43e8;
 transition: 0.4s;
 }
 .resultsBox{
-    height: 30%;
+    height: 40%;
     overflow-y: scroll;
-    padding-inline: 20px;
+    overflow-x: hidden;
+    padding-inline:10px;
+    width: calc(90% - 20px);
 }

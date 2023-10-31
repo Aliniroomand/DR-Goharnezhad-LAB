@@ -1,18 +1,50 @@
 .container{
     width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     color: var(--surmeiTire);
     box-shadow: var(--boxShadow);
     padding-inline: 10px;
     border-radius: 40px;
-    justify-content: space-evenly;
     padding-top: 5px;
     padding-bottom: 5px;
+    align-items:center;
+    justify-content: space-between;
 }
-.dataContainer{
-    line-height: 0.3;
+.buttons{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.dataContainer h2{
-    font-size: 1rem;
+.buttons button,
+.download button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50px;
+    height: 80%;
+    margin: 0 5px;
+    border-radius: 15px;
+    padding: 9px 0;
+    background-color: var(--surmeiTire);
+    box-shadow: var(--boxShadow);
+    font-size: 0.7rem;
+    margin: 10px 0;
+}
+.editingPart button p{
+margin-top: 0;
+}
+.download button img{
+    width:20px
+}
+button:hover{
+    cursor: pointer;
+    background-color: var(--surmeiRoshan);
+    transition: 0.3s;
+}
+button p{
+    font-family:"Lalezar" ;
+    color: var(--zardRoshan);
 }

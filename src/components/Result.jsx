@@ -1,39 +1,57 @@
-import React , { useEffect, useState }  from 'react';
-import { collection, onSnapshot, orderBy ,query } from 'firebase/firestore';
-import { db } from '../firebaseConfig';
+import React , { useContext, useEffect, useState }  from 'react';
+//images
 import document from '../assets/images/document.svg'
+import Delete from "../assets/images/delete.svg"
 //styles
 import styles from './Result.module.css'
+//context
+import { ResultsContext } from '../context/ResultsContextProvider';
 
+const Result = (props) => {
+    const formData=useContext(ResultsContext);
 
-const Result = () => {
-    const [wholeResults,setWholeResults]=useState([]);
-useEffect(()=>{
-const resultsRef= collection(db,"results");
-const q = query(resultsRef,orderBy("shomareGhabz","desc"));
-onSnapshot(q,(snapshot)=>{
-    const wholeResults=snapshot.docs.map((doc)=>({
-        id:doc.id,
-        ...doc.data(),
-    }));
-    setWholeResults(wholeResults);
-    })
-},[])
-    return (
+    const deleteResult= async ()=>{
+        try{
+            const{data,error}=await supabase
+            .from("results")
+            .insert({
+                shomareghabz:formData.shomareGhabz,
+                codemelli:formData.codeMelli,
+                pdf_file:[],
+            }).single()
+            if(error) throw error;
+            window.location.reload()
+        }catch(error){
+            alert(error.message)
+        }
     
-        <div>
-            { wholeResults.map(({shomareGhabz,codeMelli,uploadedAt,fileUrl,title})=>
-            <div className={styles.container} key={shomareGhabz}>
-                <div>
-                    <img src={document} alt="document" />
-                </div>
-                <div className={styles.dataContainer}>
-                    <h2>شماره قبض: {shomareGhabz}</h2>
-                    <h2>کدملی: {codeMelli}</h2>
-                    <p>تاریخ بارگذاری: {uploadedAt.toDate().toDateString()}</p>
-                </div>
+    }
+    console.log(result);
+    return (
+        <div className={styles.container}>
+            <div className={styles.buttons}>
+                <button onClick={deleteResult}>
+                    <img src={Delete}/>
+                    <p>حذف</p>
+                </button>
             </div>
-            )}
+            <div>
+                <p>
+                    {`کدملی:`}
+                </p>
+                <p>
+                    {`شماره قبض:`}
+                </p>
+                <p>
+                    تاریخ بارگذاری
+                </p>
+            </div>
+            <div className={styles.download}>
+            <button >
+                    <img src={document}/>
+                    <p>دانلود آزمایش</p>
+                </button>
+            </div>
         </div>
 
     );
