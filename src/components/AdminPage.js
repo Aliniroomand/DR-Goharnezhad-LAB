@@ -31,7 +31,8 @@ const AdminPage = () => {
     const [formData,setFormData]=useState({
         shomareGhabz:"",
         codeMelli:"",
-        file:[],
+        // file:{},
+        time:""
     })
 
     const focusHandler=(e)=>{
@@ -44,16 +45,24 @@ const AdminPage = () => {
     const uploadFileHandler=(e)=>{
         setFormData({...formData,file:e.target.files[0]})
     }
+        //for access to time and give it to time stamp
+        let today = new Date();
+        let date = `${today.getFullYear()} - ${today.getMonth()+1} - ${today.getDate()}`
+        let time = `${today.getHours() } : ${today.getMinutes()} : ${today.getSeconds()}`;
+        let dateTime = `تاریخ : ${date}  ساعت :${time}`;
+
+
     const submitUploadingHandler=async (event)=>{
-        event.preventDefault()
-        
+        event.preventDefault();
             try{
                 const{data,error}=await supabase
                 .from("results")
                 .insert({
                     shomareghabz:formData.shomareGhabz,
                     codemelli:formData.codeMelli,
-                    pdf_file:[],
+                    // pdf_file:[],
+                    time:dateTime,
+
                 }).single()
                 if(error) throw error;
                 window.location.reload()
@@ -62,7 +71,6 @@ const AdminPage = () => {
             }
         
     }
-    console.log(Object.values(errors).length);
     useEffect(()=>{
         setErrors(Validation(formData,"uploadForm"))
     },[formData])
@@ -135,7 +143,7 @@ const AdminPage = () => {
                     </button>
                 </div>
                 <div className={styles.resultsBox}>
-                    <ResultsList props={formData}/>
+                    <ResultsList />
                 </div>
             </div>
         </div>

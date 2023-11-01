@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //styles
 import styles from './ResultsList.module.css'
 import Result from './Result';
-const ResultsList = ({props}) => {
-console.log(FormData);
+import {ResultsContext} from '../context/ResultsContextProvider';
+
+const ResultsList = () => {
+    const allOfResults=useContext(ResultsContext)
+    //for access to time and give it to time stamp
 
     return (
         <div className={styles.container}>
             {
-                // (codeMelli === "") || (shomareGhabz=== "") ?
-                // <h1>چجور توقع داری بدون دونستن شماره قبض  و کدملی برات جواب رو بیارم ؟؟</h1>
-                // :
-                <Result/>
+                allOfResults.map(result=>
+                <Result 
+                    key={result.id}
+                    resultData={result}
+                    />
+
+
+
+                )
+                
             }
         </div>
     );
