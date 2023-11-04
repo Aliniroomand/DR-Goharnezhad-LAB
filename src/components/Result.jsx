@@ -1,4 +1,4 @@
-import React , { useContext, useEffect, useState }  from 'react';
+import React from 'react';
 //images
 import document from '../assets/images/document.svg'
 import Delete from "../assets/images/delete.svg"
@@ -10,21 +10,19 @@ import { supabase } from './supabaseClient';
 const Result = ({resultData}) => {
 const{id,codemelli,shomareghabz,time,file}=resultData;
     const deleteResult= async ()=>{
-        // try{
-        //     const{data,error}=await supabase
-        //     .from("results")
-        //     .insert({
-        //         shomareghabz:formData.shomareGhabz,
-        //         codemelli:formData.codeMelli,
-        //         pdf_file:[],
-        //     }).single()
-        //     console.log(data);
-        //     if(error) throw error;
-        //     window.location.reload()
-        // }catch(error){
-        //     alert(error.message)
-        // }
-    
+       if(window.confirm("بابت پاک کردن آزمایش مطمئن هستی؟",))
+        {
+        try{
+            const{data,error}=await supabase
+            .from("result")
+            .delete()
+            .eq("id",id)
+            if(error) throw error;
+            window.location.reload()
+        }catch(error){
+            alert(error.message)
+        }
+        }
     }
     return (
         <div className={styles.container}>
@@ -36,6 +34,7 @@ const{id,codemelli,shomareghabz,time,file}=resultData;
             </div>
             <div>
                 <p>
+                
                     {`کدملی:${codemelli}`}
                 </p>
                 <p>

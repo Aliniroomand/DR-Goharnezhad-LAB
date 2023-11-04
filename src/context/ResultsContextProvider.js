@@ -13,7 +13,7 @@ const ResultsContextProvider = (props) => {
   const getResults= async ()=>{
         try{
             const{data,error}=await supabase
-            .from("results")
+            .from("result")
             .select("*")
             .limit(10)
             if(error) throw error;

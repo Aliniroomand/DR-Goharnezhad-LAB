@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 //style
 import styles from './AdminPage.module.css'
 
@@ -11,19 +11,27 @@ import { supabase } from './supabaseClient';
 //helper
 import { Validation } from '../helper/Validation';
 import { toast } from 'react-toastify';
-import ResultsList from './ResultsList';
-//storage
+//context
+import {ResultsContext }from '../context/ResultsContextProvider';
 
 const AdminPage = () => {
+    const wholeResults=useContext(ResultsContext);
+    const [importedResults,setImportedResults]=useState([]);
 
 // search Part
     const[serached,setSearched]=useState({
-        codeMelli:"",
-        shomareGhabz:""
+        searchedCodeMelli:"",
+        searchedShomareGhabz:""
     });
     const searchChangeHandler = (event)=>{
         setSearched({...serached,[event.target.name]:event.target.value })
     }
+    const search = ()=>{
+        setImportedResults(wholeResults.filter(
+            result=>(result.codemelli==serached.searchedCodeMelli)
+            || result.shomareghabz==serached.searchedShomareGhabz))
+            
+        }
 
 //rest
     const[errors,setErrors]=useState("")
@@ -31,7 +39,7 @@ const AdminPage = () => {
     const [formData,setFormData]=useState({
         shomareGhabz:"",
         codeMelli:"",
-        // file:{},
+        file:[],
         time:""
     })
 
@@ -42,31 +50,33 @@ const AdminPage = () => {
         setFormData({...formData,[event.target.name]:event.target.value})
 
     }
-    const uploadFileHandler=(e)=>{
+    const uploadFileHandler=async (e)=>{
         setFormData({...formData,file:e.target.files[0]})
+        
     }
         //for access to time and give it to time stamp
         let today = new Date();
         let date = `${today.getFullYear()} - ${today.getMonth()+1} - ${today.getDate()}`
         let time = `${today.getHours() } : ${today.getMinutes()} : ${today.getSeconds()}`;
-        let dateTime = `تاریخ : ${date}  ساعت :${time}`;
+        let dateTime = `تاریخ : ${date} ساعت :${time}`;
 
 
     const submitUploadingHandler=async (event)=>{
         event.preventDefault();
             try{
                 const{data,error}=await supabase
-                .from("results")
+                .from("result")
                 .insert({
                     shomareghabz:formData.shomareGhabz,
                     codemelli:formData.codeMelli,
-                    // pdf_file:[],
                     time:dateTime,
+                    pdf_file:formData.file,
 
                 }).single()
                 if(error) throw error;
                 window.location.reload()
-            }catch(error){
+            }
+            catch(error){
                 alert(error.message)
             }
         
@@ -78,6 +88,7 @@ const AdminPage = () => {
     return (
         <AnimatedPages>
         <div className={styles.container}>
+{/* upload part */}
             <div className={styles.uploadContainer}>
                 <h1>بارگذاری جواب آزمایش</h1>
                 <label htmlFor='codeMelli'>کد ملی فرد رو اینجا وارد کنید:</label>             
@@ -103,10 +114,7 @@ const AdminPage = () => {
                 <label htmlFor='result'>فایل جواب آزمایش رو اینجا آپلود کنید</label>             
                 <input    
                 type="file" 
-                name="file"
-                value={formData.file} 
                 onChange={uploadFileHandler} 
-                onFocus={focusHandler}
                 />
                     {errors.file && touched.file && <span>{errors.file}</span>}
                 <button type="submit" onClick={submitUploadingHandler}>
@@ -114,17 +122,19 @@ const AdminPage = () => {
                 </button>
             </div>
             <div className={styles.imageContainer}>
+{/* image container */}
                 <h1>سلام و خداقوت!</h1>
                 <img src={doctorImage} alt='doctor'/>
             </div>
+{/* Results container */}
             <div className={styles.resultsContainer}>
                 <div className={styles.searchBox}>
                     <h1>جستجوی قبض</h1>
                     <label>کد ملی :</label>
                     <input 
                     type='text'
-                    name='codeMelli'
-                    value={serached.codeMelli}
+                    name='searchedCodeMelli'
+                    value={serached.searchedCodeMelli}
                     placeholder='کد ملی'
                     onChange={searchChangeHandler}
                     onFocus={focusHandler}
@@ -132,18 +142,33 @@ const AdminPage = () => {
                     <label>شماره قبض</label>
                     <input 
                     type='text'
-                    name='shomareGhabz'
-                    value={serached.shomareGhabz}
+                    name='searchedShomareGhabz'
+                    value={serached.searchedShomareGhabz}
                     placeholder='شماره قبض'
                     onChange={searchChangeHandler}
                     onFocus={focusHandler}
                     />
-                    <button>
+                    <button onClick={()=>search()}>
                         جستجو
                     </button>
                 </div>
+                {(importedResults.length> 0)?
+                    <p className={styles.numberOfFounds}> {`  ${importedResults.length}مورد تونستم پیدا کنم  `  } </p>
+                    :
+                    <p className={styles.numberOfFounds}>موردی یافت نشده هنوز</p>
+
+                }
                 <div className={styles.resultsBox}>
-                    <ResultsList />
+                {(importedResults.length)?
+                importedResults.map(r=><Result
+                key={r.id}
+                resultData={r}
+                />)
+                :<>
+                <p className={styles.searchedTexts}>لطفا برای جستجو شماره قبض یا کد ملی را وارد کنید</p>
+                <p className={styles.searchedTexts} style={{color:"var(--surmeiRoshan)"}}>وسپس دکمه جستجو را فشار دهید</p>
+                </>
+            }
                 </div>
             </div>
         </div>

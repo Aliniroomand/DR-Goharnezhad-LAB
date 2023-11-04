@@ -66,7 +66,44 @@ background-size: contain;
 width: 80%;
 font-size: 1.1rem;
 }
+.uploadContainer span{
+    color:red;
+    animation: tada 1s ease infinite;
+}
+.uploadContainer button{
+    margin-top: 10px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 90px;
+    background-color:rgba(163, 163, 163, 0.199);
+    color: var(--surmeiTire);
+    width: 50%;
+    font-weight: 900;
+    font-size: 1.3rem;
+    box-shadow: 4px 4px 8px #000000,
+    inset 4px 4px 8px #ffffff,
+    4px 4px 10px #000000,
+    -4px -4px 10px #ffffff;
+    font-family: inherit;
 
+}
+.uploadContainer button:hover{
+    margin-top: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: inherit;
+    border-radius: 90px;
+    background-color:rgb(0, 68, 255);
+    color: wheat;
+    width: 70%;
+    font-weight: 900;
+    font-size: 1.3rem;
+    box-shadow: 4px 4px 8px #000000,
+    inset 4px 4px 8px #ffffff,
+    4px 4px 10px #000000,
+    -4px -4px 10px #ffffff;
+    transition: .3s;
+}
 .resultsContainer{
     background:url(../assets/images/backgroundSVG-.png);
     background-size: contain;
@@ -115,4 +152,63 @@ transition: 0.4s;
     overflow-x: hidden;
     padding-inline:10px;
     width: calc(90% - 20px);
+    border-bottom-left-radius:90px ;
+    border-bottom-right-radius:90px ;
+}
+.searchedTexts{
+    color: var(--surmeiTire);
+    text-align: center;
+    font-size: 1.8rem;
+}
+.numberOfFounds{
+    font-size: 1.5rem;
+    margin: -20px 0 0 0;
+    padding: 0;
+    background-color: #ffffff96;
+    border-radius: 50px;
+    padding-inline: 20px;
+}
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--surmeiRoshan);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--surmeiTire);
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #949494;
+    cursor: pointer;
+  }
+ 
+
+@keyframes tada {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    10%, 20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
 }
