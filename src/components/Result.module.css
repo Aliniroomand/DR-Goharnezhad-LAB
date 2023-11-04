@@ -1,5 +1,6 @@
 .container{
-    width: 100%;
+    width: fit-content;
+margin-inline: auto;
     display: flex;
     flex-direction: row;
     color: var(--surmeiTire);
@@ -39,6 +40,11 @@ margin-top: 0;
 .download button img{
     width:20px
 }
+.informations p{
+    font-size: 1rem;
+    width: calc(80%);
+    margin-inline: auto;
+}
 button:hover{
     cursor: pointer;
     background-color: var(--surmeiRoshan);
@@ -47,4 +53,16 @@ button:hover{
 button p{
     font-family:"Lalezar" ;
     color: var(--zardRoshan);
+}
+
+@media (width<500px){
+    .download button,
+    .buttons button{
+        width: 30px;
+        height: 50px;
+    }
+    .download p,
+    .buttons p{
+        display: none;
+    }
 }

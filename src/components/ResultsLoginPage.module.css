@@ -4,13 +4,14 @@
     flex-direction: column;
     padding: 30px 10px;
     height:calc(100vh - 20px);
-    width: calc(100vw - 40px);
+    width: calc(90vw - 30px);
     background: url(../assets/images/mobile-answer-page.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 40px;
     box-shadow: var(--boxShadow);
     position: relative;
+    margin-inline: auto;
 
 }
 .inputsContainer {
@@ -19,7 +20,8 @@ align-items: center;
 flex-direction: column;
 justify-content: center;
 height: 60%;
-width: 200px;
+width: calc(90vw - 50px);
+
 margin-inline: auto;
 }
 .inputsContainer form{
@@ -28,6 +30,9 @@ margin-inline: auto;
     align-items: center;
     padding: 0 5px;
     width: 100%;
+    position:relative;
+top: 30px;
+bottom: 20px;
 }
 
 label{
@@ -37,6 +42,7 @@ color: var(--surmeiTire);
 text-shadow: 0px 0px 5px rgb(255, 255, 255);
 
 
+
 }
 input::placeholder{
     color: #6d6d6d;
@@ -44,7 +50,8 @@ input::placeholder{
 }
 .inputsContainer form input{
 padding: 10px;
-width: 100%;
+width: calc(50vw);
+
 border: none ;
 box-shadow: 4px 4px 8px #000000,
 inset 4px 4px 8px #ffffff,
@@ -99,7 +106,8 @@ form button{
     align-items: center;
     justify-content: center;
     padding-top: 20px;
-    width: 100%;
+    width: calc(50vw);
+
 }
 .redButton{
     background-color:rgb(255, 0, 0);
@@ -177,13 +185,39 @@ inset 4px 4px 8px #ffffff,
     transition: .3s;
 }
 .resultsContainer{
-    min-width: 250px;
+    width: calc(90vw - 50px);
     box-shadow: var(--boxShadow);
-    height: 20%;
     margin-inline: auto;
-    margin-top: -30px;
     backdrop-filter: blur(2px);
     border-radius: 30px;
+    position: relative;
+    top: 40px;
+    text-align: center;
+    overflow-y: scroll;
+height: 10rem;
+margin-top: -20px;
+}
+.numberOfFounds{
+text-align: center;
+color: var(--surmeiTire);
+text-shadow: 0 0 5px #fff,
+0 0 10px var(--surmeiRoshan);
+position: relative;
+top: -60%;
+margin-inline: auto;
+}
+.resultsBox{
+}
+.resultsBox p{
+    color: var(--surmeiTire);
+    text-shadow: 0 0 5px #fff,
+    0 0 10px var(--surmeiRoshan);
+    font-size: 1.3rem;
+    word-spacing: -2px;
+    line-height: 1.3rem;
+}
+.RESULT{
+    width: calc(50vw)!important;
 
 }
 /* Animations */

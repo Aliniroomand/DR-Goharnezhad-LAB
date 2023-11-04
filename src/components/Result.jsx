@@ -1,6 +1,6 @@
 import React from 'react';
 //images
-import document from '../assets/images/document.svg'
+import download from '../assets/images/download.svg'
 import Delete from "../assets/images/delete.svg"
 //styles
 import styles from './Result.module.css'
@@ -32,7 +32,7 @@ const{id,codemelli,shomareghabz,time,file}=resultData;
                     <p>حذف</p>
                 </button>
             </div>
-            <div>
+            <div className={styles.informations}>
                 <p>
                 
                     {`کدملی:${codemelli}`}
@@ -46,7 +46,7 @@ const{id,codemelli,shomareghabz,time,file}=resultData;
             </div>
             <div className={styles.download}>
             <button >
-                    <img src={document} alt='document'/>
+                    <img src={download} alt='download'/>
                     <p>دانلود آزمایش</p>
                 </button>
             </div>

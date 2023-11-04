@@ -1,4 +1,4 @@
-import React , { useState ,useEffect } from 'react';
+import React , { useState ,useEffect, useContext } from 'react';
 import {notify} from '../assets/toast';
 import { ToastContainer} from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -9,13 +9,15 @@ import AnimatedPages from './AnimatedPages';
 import Result from './Result';
 //styles
 import styles from './ResultsLoginPage.module.css'
+//context
+import {ResultsContext} from '../context/ResultsContextProvider';
 
 const Results = () => {
-const [data,setData]=useState({
-    codeMelli:"",
-    shomareGhabz:""
-});
-
+    const [data,setData]=useState({
+        codeMelli:"",
+        shomareGhabz:""
+    });
+    
 const changeHandler=(event)=>{
     setData({...data,[event.target.name]:(event.target.value)})
 }
@@ -38,15 +40,24 @@ const submitHandler=(event)=>{
      setTouched({
      codeMelli:true,
      shomareGhabz:true,
-})}else{
-    notify("در حال جستجوی جواب","success");
-
-
-
+    })}else{
+        notify("در حال جستجوی جواب","success");
+        setImportedResults(wholeResults.filter(
+            result=>(result.codemelli==data.codeMelli)
+            && result.shomareghabz==data.shomareGhabz))
+            
+    }
 }
-}
+const wholeResults=useContext(ResultsContext);
+const [importedResults,setImportedResults]=useState([]);
+const search = ()=>{
+    setImportedResults(wholeResults.filter(
+        result=>(result.codemelli==data.codeMelli)
+        && result.shomareghabz.toLowerCase()==data.shomareGhabz.toLowerCase()))
+        
+    }
 
-    return (
+return (
     <>
     <AnimatedPages>
         <div className={styles.mainContainer}>
@@ -76,14 +87,30 @@ const submitHandler=(event)=>{
                     />
                     {errors.shomareGhabz && touched.shomareGhabz && <span>{errors.shomareGhabz}</span>}
                     <div className={styles.buttons}>
-                        <button onClick={submitHandler}type="submit" className={Object.keys(errors).length > 0 ? styles.redButton: styles.greenButton}>ورود</button>
+                        <button onClick={submitHandler}type="submit" className={Object.keys(errors).length > 0 ? styles.redButton: styles.greenButton}>جستجوی جواب</button>
                         <Link to="./firstpage">بازگشت</Link>
                     </div>
                 </form>
                     <ToastContainer />
             </div>
             <div className={styles.resultsContainer}>
-                <Result/>
+
+                <div className={styles.resultsBox}>
+                {
+                (importedResults.length)?
+                    importedResults.map(r=><Result
+                    key={r.id}
+                    resultData={r}
+                    className={styles.RESULT}
+                    />)
+                    :<>
+                    <p className={styles.searchedTexts}>لطفا برای جستجو، شماره قبض و کد ملی را به درستی وارد کنید</p>
+                    <p className={styles.searchedTexts} >وسپس دکمه جستجو را فشار دهید</p>
+                    </>
+                }
+                </div>
+
+
             </div>
         </div>
     </AnimatedPages>
