@@ -1,12 +1,9 @@
-body{
-
-}
-main{
-
-    background: radial-gradient(circle, rgba(153,213,255,1) 0%, rgba(11,128,156,1) 100%);
-    padding-top: 10vh;
-    position: relative;
-    margin: auto;
+.main_container_of_site{
+ position: relative;
+ width: 500px;   
+ height: 500px;
+ background: radial-gradient(circle, rgba(153,213,255,1) 0%, rgba(11,128,156,1) 100%);
+ padding-top: 10vh;
  width: calc(100%);
  border-radius: 20px;
  box-shadow: var(--boxShadow);
@@ -23,17 +20,15 @@ color: var(--surmeiTire);
 }
 header img{
     width: 200px;
-
 }
 
-.aboutUs_container{
+.aboutDR_container{
     display:flex;
     align-items: center;
     position: absolute;
-    right: 0;
-    top: 0;
 }
-.aboutUs_DR_title{
+.aboutDR_DR_title,
+.aboutUS_title{
     cursor: pointer;
     position: absolute;
     padding: 20px;
@@ -43,19 +38,29 @@ header img{
     background: var(--surmeiTire);
     color: var(--zardRoshan);
     z-index: 5;
+    animation: circle 10s ease-in-out infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
 }
-.aboutUs_DR_title:hover + .aboutUs_DR_container{
+.aboutDR_DR_title img{
+width: 50px;
+}
+.aboutDR_DR_title:hover + .aboutDR_DR_container,
+.aboutUS_title:hover + .aboutUS_container{
     visibility: visible;
     opacity: 1;
     transition: visibility 0s, opacity 0.3s linear;
 
 }
-.aboutUs_DR_container{
+.aboutDR_DR_container,
+.aboutUS_container{
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s linear;
     position: absolute;
-    width: 300px;
+    width: 24rem;
     background-color: rgba(240, 248, 255, 0.548);
     text-align: center;
     border-radius: 100px;
@@ -63,19 +68,46 @@ header img{
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    color: var(--surmeiTire);
+    color: var(--zardTire);
     right: -40px;
-    top: 15rem;
+    top: 10rem;
+    border-radius: 20px;
+    box-shadow: var(--boxShadow);
+    text-shadow: 0 0 0 #fff, 0 0 5px #fff;
+}
+.aboutDR_DR_container{
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 
-.aboutUs_DR_container img{
+.aboutDR_DR_container img,
+.aboutUS_container img{
     width: 100px;
     border-radius: 50%;
     box-shadow: var(--boxShadow);
 }
-.aboutUs_DR_container figcaption{
-    font-size: 0.8rem;
+.aboutDR_DR_container figcaption,
+.aboutUS_container figcaption{
+    font-size: 1rem;
     text-align:justify;
-    line-height: 1rem;
-    padding: 10px 0 10px ;
+    text-wrap: wrap;
+    line-height: 1.2rem;
+    padding: 10px 10px 20px ;
+
 }
+@keyframes circle{
+    0%{
+      transform:rotate(0deg)
+                translate(-50%)
+                rotate(0deg);
+    
+    }
+    100%{
+      transform:rotate(360deg)
+                translate(-50%)
+                rotate(-360deg);
+    }
+  }
+  
+  

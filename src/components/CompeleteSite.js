@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import DR_Gohar from '../assets/images/DR_goharnezhad_photo.jpg'
 import aboutUs from '../assets/images/aboutUs.svg'
 import microscope from '../assets/images/microscopeBG.png'
+import aboutUs2 from '../assets/images/info.svg'
+
 //Style
 import styles from './CompleteSite.module.css'
 
@@ -12,25 +14,26 @@ const CompeleteSite = () => {
     return (
         <AnimatedPages>
         <>
-            <main>
+            <div className={styles.main_container_of_site}>
         {/* Site title */}
                 <header>
-                    <img src={microscope} />
+                    <img src={microscope} alt='microscope' />
                     <h1>
                         آزمایشگاه تشخیص طبی دکتر گهرنژاد
                     </h1>
                 </header>
         {/* Site title_______________ */}
+            <main>
 
         {/* about us */}
-                <article className={styles.aboutUs_container}>
-                        <figure className={styles.aboutUs_DR_title}>
+                <article className={styles.aboutDR_container}>
+                        <figure className={styles.aboutDR_DR_title}>
                             <img src={aboutUs} alt='DRGoharnezhad'/>
                             <figcaption>
                                 درباره دکتر گهرنژاد
                             </figcaption>
                         </figure>
-                    <article className={styles.aboutUs_DR_container}>
+                    <article className={styles.aboutDR_DR_container}>
                         <figure>
                             <img src={DR_Gohar} alt='DRGoharnezhad'/>
                             <figcaption>
@@ -42,17 +45,26 @@ const CompeleteSite = () => {
                             </figcaption>
                         </figure>
                     </article> 
+                </article>
+        {/*about DR____________________________________ */}
 
+        {/*about us*/}
                     <article>
-                        <figure>
-                            <img/>
+                    <figure className={styles.aboutUS_title}>
+                            <img src={aboutUs2} alt='aboutLAB'/>
+                            <figcaption>
+                                درباره آزمایشگاه                            
+                            </figcaption>
+                    </figure>
+                        <figure className={styles.aboutUS_container}>
+                            <img src={DR_Gohar}/>
                             <figcaption>
                             ،آزمایشگاه تشخیص طبی دکتر گهر نژاد از سال 1399 آغاز به کار کرده و با بهترین و کاملترین تجهیزات روز آزمایشگاهی و با بهره گیری از بهترین پرسنل آزمایشگاهی استان ، در حال خدمت رسانی به مردم می باشد.آزمایشگاه ما بالطف وعنایت پروردگار متعال ودرجهت کمک به تشخیص صحیح ودقیق بیماری ها ,تحقق اهداف پزشکان محترم ,حفظ وارتقاء سطح سلامت جامعه ,کسب اعتبارملی وبه منظور افزایش سطح رضایتمندی بیماران وپزشکان بابهره گیری ازتجهیزات مدرن وبعضامنحصربه فرد آزمایشگاهی دربخش های پاتولوژی و سیتولوژی بارویکردی بیمار محورپابه عرصه خدمت نهاده است .این آزمایشگاه درنظردارد ضمن انجام آزمایشات عمومی واختصاصی درکوتاهترین زمان , نسبت به انجام آزمایشاتی که نیاز به تحقیقات وسیع تری داشته باشند همکاری مستمر داشته وزمینه رابرای ارائه تجارب علمی وعینی شما فراهم نماید. امیداست که به یاری خداوند متعال ودرپی دریافت پیشنهادات وراهنمایی های ارزنده شما بتوانیم درتشخیص به موقع ودقیق بیماری ها خدمات شایسته ای را ارائه نماییم.
                             </figcaption>
                         </figure>
                     </article>
-                </article>
         {/*about us____________________________________ */}
+
 
         {/* our services */}
                 <article>
@@ -87,6 +99,7 @@ const CompeleteSite = () => {
         {/* necessities before exam________________ */}
 
             </main>
+        </div>
         </>
         </AnimatedPages>
     );
