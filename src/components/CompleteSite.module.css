@@ -1,36 +1,61 @@
 .main_container_of_site{
- position: relative;
- width: 500px;   
- height: 500px;
+ position: fixed;
+ width:100vw;   
+ height:100vh;
  background: radial-gradient(circle, rgba(153,213,255,1) 0%, rgba(11,128,156,1) 100%);
- padding-top: 10vh;
- width: calc(100%);
+ padding-top: 20vh;
  border-radius: 20px;
  box-shadow: var(--boxShadow);
- height: 88svh;
+ display: grid;
+ place-items: center;
+ left: 0;
+ top: 0;
+overflow: scroll;
 }
 header {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%,-50%);
+position: fixed;
+display: grid;
+place-items: center;
 text-align: center;
 font-size: 0.5rem;
 color: var(--surmeiTire);
+top: 0;
 }
 header img{
-    width: 200px;
+    width: 30rem;
+    left:calc(50% - 15rem);
+    position: fixed;
+    top: 20vh;
+}
+header h1{
+    font-family: "Lateef";
+    width: 17rem;
+    font-weight: 900;
+    position: fixed;
+    top: 7vh;
+left: calc(50% - 9rem);
+backdrop-filter: blur(3px);
+box-shadow: 0px 0px 12px 6px #dbdbdb inset, 9px 4px 34px 7px #dbdbdb inset, 6px 9px 18px 0px #000000;
+border-radius: 30px;
+font-size: 2rem;
+padding-inline: 10px;
+border: 2px solid #dbdbdb;
 }
 
-.aboutDR_container{
-    display:flex;
-    align-items: center;
-    position: absolute;
-}
-.aboutDR_DR_title,
-.aboutUS_title{
+
+
+.aboutDR_title,
+.aboutUS_title,
+.services_title,
+.results_title,
+.necessities_title,
+.address_title,
+.time_title,
+.contactUs_title{
     cursor: pointer;
     position: absolute;
+    width:100px ;
+    height: 100px;
     padding: 20px;
     box-shadow: var(--boxShadow);
     border-radius: 200px;
@@ -38,76 +63,227 @@ header img{
     background: var(--surmeiTire);
     color: var(--zardRoshan);
     z-index: 5;
-    animation: circle 10s ease-in-out infinite;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    animation: circle 3s ease-in-out infinite;
+
+
 
 }
-.aboutDR_DR_title img{
+.aboutDR_title img{
 width: 50px;
 }
-.aboutDR_DR_title:hover + .aboutDR_DR_container,
-.aboutUS_title:hover + .aboutUS_container{
+
+.aboutDR_title{left: calc( 25%);top: calc(12%);}
+.aboutUS_title{left: calc( 20%);top: calc(30%);}
+.results_title{left: calc( 20%);top: calc(50%);}
+.services_title{left: calc( 30% );top: calc(65%);}
+.necessities_title{right: calc( 25%);top: calc(12%);}
+.address_title{right: calc( 20%);top: calc(30%);}
+.time_title{right: calc( 20%);top: calc(50%);}
+.contactUs_title{right: calc( 30% );top: calc(65%);}
+
+
+.aboutDR_title:hover + .aboutDR_explain,
+.aboutUS_title:hover + .aboutUS_explain,
+.services_title:hover + .services_explain,
+.results_title:hover + .results_explain,
+.necessities_title:hover + .necessities_explain,
+.address_title:hover + .address_explain,
+.time_title:hover + .time_explain,
+.contactUs_title:hover + .contactUs_explain{
     visibility: visible;
     opacity: 1;
     transition: visibility 0s, opacity 0.3s linear;
+    
 
 }
-.aboutDR_DR_container,
-.aboutUS_container{
+.aboutDR_title:hover,
+.aboutUS_title:hover,
+.services_title:hover,
+.results_title:hover,
+.necessities_title:hover,
+.address_title:hover,
+.time_title:hover,
+.contactUs_title:hover{
+    animation: shakingOnHover 1s ease 0s 1 normal forwards;
+    background-color: #fff;
+}
+
+.aboutDR_explain,
+.aboutUS_explain,
+.services_explain,
+.results_explain,
+.necessities_explain,
+.address_explain,
+.time_explain,
+.contactUs_explain{
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.3s linear;
-    position: absolute;
+    transition: visibility 20s, opacity 0.3s linear;
+    position: fixed;
     width: 24rem;
     background-color: rgba(240, 248, 255, 0.548);
     text-align: center;
     border-radius: 100px;
-    backdrop-filter: blur(3px);
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    backdrop-filter: blur(2px);
     color: var(--zardTire);
-    right: -40px;
-    top: 10rem;
     border-radius: 20px;
     box-shadow: var(--boxShadow);
     text-shadow: 0 0 0 #fff, 0 0 5px #fff;
-}
-.aboutDR_DR_container{
-    background-size:contain;
-    background-repeat: no-repeat;
-    background-position: top;
+ font-family: "Lateef";
+ left: calc(50% - 12rem);
+ top: calc(50% - 6rem);
+ z-index: 10;
+
 }
 
-.aboutDR_DR_container img,
-.aboutUS_container img{
+
+.aboutDR_explain img,
+.aboutUS_explain img{
     width: 100px;
     border-radius: 50%;
     box-shadow: var(--boxShadow);
 }
-.aboutDR_DR_container figcaption,
-.aboutUS_container figcaption{
-    font-size: 1rem;
+.aboutDR_explain figcaption,
+.aboutUS_explain figcaption,
+.services_explain,
+.results_explain figcaption,
+.necessities_explain figcaption,
+.address_explain figcaption,
+.time_explain figcaption,
+.contactUs_explain figcaption{
+    font-size: 1.2rem;
     text-align:justify;
-    text-wrap: wrap;
-    line-height: 1.2rem;
-    padding: 10px 10px 20px ;
+    line-height: 1.3rem;
+    padding: 10px 20px 20px;
+    font-weight: 800;
+    
+}
+.results_title a{
+    text-decoration: none;
+    color: var(--zardRoshan);
+    text-decoration: none;
+    font-family: "Lalezar";
+    cursor: pointer;
+}
+.contactUs_explain{
+    transition: visibility 8s, opacity 8s linear;
 
 }
-@keyframes circle{
-    0%{
-      transform:rotate(0deg)
-                translate(-50%)
-                rotate(0deg);
+.services_explain li{
+    list-style-type: none;
+}
+.contactUs_explain a{
+text-decoration: none;
+font-size: 2rem;
+font-family: "Lateef";
+color: var(--surmeiTire);
+font-weight: 900;
+
+}
+.contactUs_explain a:hover{
+    color: var(--zardRoshan);
+}
+
+.time_explain {
+font-size: 1.7rem;
+}
+
+.address_explain iframe{
+width: 250px;
+height: 250px;
+border-radius: 50%;
+}
+.address_explain{
+    display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+.address_explain location {
+font-size: 2rem;
+}
+
+.necessities_explain{
+    font-size: 1.5rem;
+    font-weight: 900;
+    transform: translateY(-33%);
+}
+
+
+    @keyframes circle {
+        0% {
+            transform: scale3d(1, 1, 1);
+
+        }
     
+        30% {
+            transform: scale3d(1.25, 0.75, 1);
+        }
+    
+        40% {
+            transform: scale3d(0.75, 1.25, 1);
+        }
+    
+        50% {
+            transform: scale3d(1.15, 0.85, 1);
+        }
+    
+        65% {
+            transform: scale3d(0.95, 1.05, 1);
+        }
+    
+        75% {
+            transform: scale3d(1.05, 0.95, 1);
+        }
+    
+        100% {
+            transform: scale3d(1, 1, 1);
+        }
     }
-    100%{
-      transform:rotate(360deg)
-                translate(-50%)
-                rotate(-360deg);
+    @keyframes shakingOnHover {
+        0% {
+            transform: translate(0);
+        }
+    
+        10% {
+            transform: translate(-3px, -3px);
+        }
+    
+        20% {
+            transform: translate(3px, -3px);
+        }
+    
+        30% {
+            transform: translate(-3px, 3px);
+        }
+    
+        40% {
+            transform: translate(3px, 3px);
+        }
+    
+        50% {
+            transform: translate(-3px, -3px);
+        }
+    
+        60% {
+            transform: translate(3px, -3px);
+        }
+    
+        70% {
+            transform: translate(-3px, 3px);
+        }
+    
+        80% {
+            transform: translate(-3px, -3px);
+        }
+    
+        90% {
+            transform: translate(3px, -3px);
+        }
+    
+        100% {
+            transform: translate(0);
+        }
     }
-  }
-  
+
   
