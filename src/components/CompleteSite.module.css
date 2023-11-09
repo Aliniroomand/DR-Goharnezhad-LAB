@@ -2,7 +2,10 @@
  position: fixed;
  width:100vw;   
  height:100vh;
- background: radial-gradient(circle, rgba(153,213,255,1) 0%, rgba(11,128,156,1) 100%);
+ background: url(../assets/images/ssss/—Pngtree—grid\ technology\ cool\ blue\ background_80967.png);
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
  padding-top: 20vh;
  border-radius: 20px;
  box-shadow: var(--boxShadow);
@@ -60,7 +63,7 @@ border: 2px solid #dbdbdb;
     box-shadow: var(--boxShadow);
     border-radius: 200px;
     text-align: center;
-    background: var(--surmeiTire);
+    background:#022952b2;
     color: var(--zardRoshan);
     z-index: 5;
     animation: circle 3s ease-in-out infinite;
@@ -72,30 +75,17 @@ border: 2px solid #dbdbdb;
 width: 50px;
 }
 
-.aboutDR_title{left: calc( 25%);top: calc(12%);}
-.aboutUS_title{left: calc( 20%);top: calc(30%);}
-.results_title{left: calc( 20%);top: calc(50%);}
-.services_title{left: calc( 30% );top: calc(65%);}
-.necessities_title{right: calc( 25%);top: calc(12%);}
-.address_title{right: calc( 20%);top: calc(30%);}
-.time_title{right: calc( 20%);top: calc(50%);}
-.contactUs_title{right: calc( 30% );top: calc(65%);}
+.aboutDR_title{left: calc( 15%);top: calc(12%);}
+.aboutUS_title{left: calc( 10%);top: calc(30%);}
+.results_title{left: calc( 10%);top: calc(50%);}
+.services_title{left: calc( 20% );top: calc(65%);}
+.necessities_title{right: calc( 15%);top: calc(12%);}
+.address_title{right: calc( 10%);top: calc(30%);}
+.time_title{right: calc( 10%);top: calc(50%);}
+.contactUs_title{right: calc( 20% );top: calc(65%);}
 
 
-.aboutDR_title:hover + .aboutDR_explain,
-.aboutUS_title:hover + .aboutUS_explain,
-.services_title:hover + .services_explain,
-.results_title:hover + .results_explain,
-.necessities_title:hover + .necessities_explain,
-.address_title:hover + .address_explain,
-.time_title:hover + .time_explain,
-.contactUs_title:hover + .contactUs_explain{
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity 0.3s linear;
-    
 
-}
 .aboutDR_title:hover,
 .aboutUS_title:hover,
 .services_title:hover,
@@ -116,24 +106,21 @@ width: 50px;
 .address_explain,
 .time_explain,
 .contactUs_explain{
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 20s, opacity 0.3s linear;
     position: fixed;
-    width: 24rem;
     background-color: rgba(240, 248, 255, 0.548);
     text-align: center;
-    border-radius: 100px;
     backdrop-filter: blur(2px);
     color: var(--zardTire);
     border-radius: 20px;
     box-shadow: var(--boxShadow);
     text-shadow: 0 0 0 #fff, 0 0 5px #fff;
  font-family: "Lateef";
- left: calc(50% - 12rem);
- top: calc(50% - 6rem);
+ left: calc(50% - 40vw);
+ top:calc(50% - 10vh) ;
  z-index: 10;
-
+ overflow-y: scroll;
+height: 70vh;
+width: 80vw;
 }
 
 
@@ -208,6 +195,120 @@ font-size: 2rem;
     font-weight: 900;
     transform: translateY(-33%);
 }
+
+
+@media (425px < width <=780px){
+    .aboutDR_title,
+    .aboutUS_title,
+    .results_title a,
+    .results_title,
+    .services_title,
+    .necessities_title,
+    .address_title,
+    .time_title,
+    .contactUs_title{
+        font-size: 0.7rem;
+        width: 50px;
+        height: 50px;
+        font-family: "Lateef";
+        font-weight: 900;
+
+    }
+    .aboutDR_title img,
+    .aboutUS_title img,
+    .results_title img,
+    .services_title img,
+    .necessities_title img,
+    .address_title img,
+    .time_title img,
+    .contactUs_title img{
+        width: 30px;
+    }
+    .aboutDR_title{left: calc( 0%);top: calc(12%);}
+    .aboutUS_title{left: calc( 0%);top: calc(30%);}
+    .results_title{left: calc( 0%);top: calc(50%);}
+    .services_title{left: calc( 0% );top: calc(65%);}
+    .necessities_title{right: calc( 0%);top: calc(12%);}
+    .address_title{right: calc( 0%);top: calc(30%);}
+    .time_title{right: calc( 0%);top: calc(50%);}
+    .contactUs_title{right: calc( 0% );top: calc(65%);}
+
+}
+@media (width<=425px){
+
+    header img{
+        width: 300px;
+        left: calc(50% - 150px);
+        top: calc(50vh - 80px);
+    }
+    .aboutDR_title,
+    .aboutUS_title,
+    .results_title a,
+    .results_title,
+    .services_title,
+    .necessities_title,
+    .address_title,
+    .time_title,
+    .contactUs_title{
+        font-size: 1rem;
+        width: 35px;
+        height: 35px;
+        font-family: "Lateef";
+        font-weight: 900;
+        background:#fafafa96;
+        text-align: center;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+    }
+    .aboutDR_title img,
+    .aboutUS_title img,
+    .results_title img,
+    .services_title img,
+    .necessities_title img,
+    .address_title img,
+    .time_title img,
+    .contactUs_title img{
+        width: 20px;
+        height: 20px;
+        position: fixed;
+        z-index: 0;
+        left: calc(50% - 10px);
+    }
+    .aboutDR_title figcaption,
+    .aboutUS_title figcaption,
+    .results_title figcaption,
+    .services_title figcaption,
+    .necessities_title figcaption,
+    .address_title figcaption,
+    .time_title figcaption,
+    .contactUs_title figcaption{
+        color:var(--surmeiTire);
+        font-size: 0.8rem;
+        position: absolute;
+        font-family: "Lalezar";
+        padding: 0 5px;
+        margin: 0;
+    }
+    .necessities_title figcaption{
+        font-size: 0.7rem;
+    }
+    .aboutDR_title{left: 15%;top: calc(35%);}
+    .aboutUS_title{left: calc( -10%);top: calc(35%);}
+    .results_title{left: calc( -10%);top: calc(50%);}
+    .services_title{left: calc( -10% );top: calc(65%);}
+    .necessities_title{right: calc( 15%);top: calc(35%);}
+    .address_title{right: calc( -10%);top: calc(35%);}
+    .time_title{right: calc( -10%);top: calc(50%);}
+    .contactUs_title{right: calc( -10% );top: calc(65%);}
+
+}
+
+
+
+
+
 
 
     @keyframes circle {

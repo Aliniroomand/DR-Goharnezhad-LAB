@@ -1,7 +1,7 @@
 import React , { useState ,useEffect, useContext } from 'react';
 import {notify} from '../assets/toast';
 import { ToastContainer} from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //helper
 import{ Validation } from '../helper/Validation.js'
 //components
@@ -13,6 +13,8 @@ import styles from './ResultsLoginPage.module.css'
 import {ResultsContext} from '../context/ResultsContextProvider';
 
 const Results = () => {
+    const navigate=useNavigate();
+    
     const [data,setData]=useState({
         codeMelli:"",
         shomareGhabz:""
@@ -88,7 +90,7 @@ return (
                     {errors.shomareGhabz && touched.shomareGhabz && <span>{errors.shomareGhabz}</span>}
                     <div className={styles.buttons}>
                         <button onClick={submitHandler}type="submit" className={Object.keys(errors).length > 0 ? styles.redButton: styles.greenButton}>جستجوی جواب</button>
-                        <Link to="./firstpage">بازگشت</Link>
+                        <button className={styles.backButton} onClick={()=>navigate(-1)} >بازگشت</button>
                     </div>
                 </form>
                     <ToastContainer />

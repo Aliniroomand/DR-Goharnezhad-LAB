@@ -153,7 +153,7 @@ inset 4px 4px 8px #ffffff,
 4px 4px 10px #000000,
 -4px -4px 10px #ffffff;
 }
-.buttons a{
+.backButton{
     margin-top: 10px;
     text-decoration: none;
     text-align: center;
