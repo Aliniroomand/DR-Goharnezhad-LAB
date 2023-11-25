@@ -1,7 +1,7 @@
 import React , { useState ,useEffect, useContext } from 'react';
 import {notify} from '../assets/toast';
 import { ToastContainer} from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //helper
 import{ Validation } from '../helper/Validation.js'
 //components
@@ -43,26 +43,22 @@ const submitHandler=(event)=>{
      codeMelli:true,
      shomareGhabz:true,
     })}else{
-        notify("در حال جستجوی جواب","success");
+        notify("کد ملی و شماره قبض صحیح بود","success");
         setImportedResults(wholeResults.filter(
-            result=>(result.codemelli==data.codeMelli)
-            && result.shomareghabz==data.shomareGhabz))
+            result=>(result.codemelli===data.codeMelli)
+            && result.shomareghabz===data.shomareGhabz))
             
     }
 }
 const wholeResults=useContext(ResultsContext);
 const [importedResults,setImportedResults]=useState([]);
-const search = ()=>{
-    setImportedResults(wholeResults.filter(
-        result=>(result.codemelli==data.codeMelli)
-        && result.shomareghabz.toLowerCase()==data.shomareGhabz.toLowerCase()))
-        
-    }
 
 return (
     <>
     <AnimatedPages>
         <div className={styles.mainContainer}>
+        <h4 style={{position:"fixed",textAlign:"center",top:"10rem",color:"red",fontSize:"1.7rem"}}>برای تست کدملی : <br/> 1111111111 <br/> وشماره قبض:<br/> 1 <br/> را وارد کنید</h4>
+
             <div className={styles.inputsContainer}>
                 <form onSubmit={submitHandler}>
                 

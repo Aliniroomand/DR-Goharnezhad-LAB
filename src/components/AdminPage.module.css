@@ -41,7 +41,20 @@ color: var(--zardRoshan);
 text-shadow: 0 0 1px black;
 z-index: 1;
 }
-
+.imageContainer h4{
+    top: 150px;
+    color: red;
+    text-shadow: 0 0 5px #fff, 0 0 10px #000;
+    left: 10px;   
+position: absolute;
+font-size: 1.2rem;
+background: rgba(248, 248, 248, 0.363);
+backdrop-filter: blur(2px);
+padding: 10px;
+border-radius: 20px;
+width: 130px;
+text-align: center;
+}
 
 
 .uploadContainer{

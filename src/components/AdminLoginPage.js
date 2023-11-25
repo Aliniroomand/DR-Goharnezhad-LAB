@@ -90,6 +90,7 @@ useEffect( ()=>{
         </div>
     </form>
             <ToastContainer />
+          <h4 style={{textAlign:"center",fontSize:"1.1rem"}}>رمز عبور و نام کاربری برای تست :<br/> aliniroomand</h4>
             <img src={wavesBG} className={styles.wavesBG1} alt='layerd waves'/>
     </div>
     </AnimatedPages>

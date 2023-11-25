@@ -10,7 +10,6 @@ import AnimatedPages from './AnimatedPages';
 import { supabase } from './supabaseClient';
 //helper
 import { Validation } from '../helper/Validation';
-import { toast } from 'react-toastify';
 //context
 import {ResultsContext }from '../context/ResultsContextProvider';
 
@@ -28,8 +27,8 @@ const AdminPage = () => {
     }
     const search = ()=>{
         setImportedResults(wholeResults.filter(
-            result=>(result.codemelli==serached.searchedCodeMelli)
-            || result.shomareghabz==serached.searchedShomareGhabz))
+            result=>(result.codemelli===serached.searchedCodeMelli)
+            || result.shomareghabz===serached.searchedShomareGhabz))
             
         }
 
@@ -125,6 +124,7 @@ const AdminPage = () => {
 {/* image container */}
                 <h1>سلام و خداقوت!</h1>
                 <img src={doctorImage} alt='doctor'/>
+                <h4>!!!!<br/>برای تست، یک آزمایش بارگذاری کنید<br/>وسپس در قسمت جستجو آنرا جستجو کنید<br/>!!!!</h4>
             </div>
 {/* Results container */}
             <div className={styles.resultsContainer}>
